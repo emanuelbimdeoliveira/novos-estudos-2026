@@ -1,0 +1,63 @@
+Countdown e Cronômetro - projeto 2.0
+
+1 - Qual o objetivo do projeto?
+	O esse projeto deve fazer e qual a sua função principal?
+
+	Ele deve contar o tempo descendente ou ascendente
+	O usuário pode marcar o tempo no cronômetro ou saber o tempo que falta passar até o momento final escolhido por ele
+
+2 - Funcionalidades mínimas?
+	Contar o intervalo do tempo entre o momento final e o atual
+	Poder escolher o tempo final
+	Poder escolher um tempo fixo até o final do contador
+	Poder pausar, cancelar ou reiniciar a contagem
+	O cronômetro pode contar o tempo infinitamente, pausar, cancelar ou reiniciar a contagem
+
+3 - Telas e estados
+	Estados: inicial, contando, pausado, finalizado
+	Telas: tela inicial com uma imagem representativa e as duas possibilidades, countdown ou cronômetro
+		   tela relacionada a cada função com seus respectivos botões e opções
+
+4 - Botões e comportamentos
+	Botão inicial, botões para selecionar cada função
+	Botões para iniciar, pausar, cancelar e reiniciar a contagem
+	Botão para voltar ao inicio e ver o histórico
+
+5 - Fluxo ideal
+	O usuário entra no programa e escolhe o cronômetro
+		Ele inicia a contagem e o tempo atualiza
+			Se ele pausar o tempo para mas pode continuar
+			Se ele cancelar o tempo para, armazena o resultado e volta no inicio
+			Se ele reiniciar faz o caminho anterior mas já inicia automaticamente
+		Ele pode voltar a tela inicial e ver o histórico
+	O usuário entra no programa e escolhe o countdown
+		Ele escolhe uma data fixa no futuro ou Ele escolhe um tempo específico para a contagem e ela se inicia
+			Se ele pausar, o tempo para na tela, mas continua girando em segundo plano, quando ele continuar atualiza automaticamente
+			Se ele cancelar volta no inicio e reseta o input			
+		Ele pode voltar a tela inicial
+6 - Organização dos arquivos
+	countdown
+		logic
+			controller
+				timer.js
+				countdown.js
+			display
+				home.js
+				timerScreen.js
+				countdownScreen.js
+				updateScreen.js
+			events
+				events.js
+			utils
+				formaters.js
+			state
+				state.js
+		index.js
+		index.html
+		style.css
+7 - Visual 
+	Minimalista com BootStrap
+8 - Extras futuros
+	Mostrar um relógio grande na tela, digital ou analógico
+	Ver o histórico armazenado na memória
+	Escolher temas de cores
