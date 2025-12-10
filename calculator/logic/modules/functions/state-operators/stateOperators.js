@@ -35,4 +35,4 @@ const toPrintScreen = () => {
   screen.innerText = printScreen.replace(/\./g, ",");
 };
 
-export { updateSignal, slice, reset, parseNumber, toPrintScreen, printScreen };
+export { updateSignal, slice, reset, parseNumber, toPrintScreen };

@@ -12,12 +12,19 @@
     <link rel="stylesheet" href="style.css" />
     <title>Cronômetro e CountDown</title>
   </head>
+
+
   <body class="bg-primary container-fluid">
+
+    
+    <!-- home -->
     <section
       id="screen-home"
       class="home d-flex flex-column justify-content-center gap-3 align-items-center active"
     >
       <h1>Home</h1>
+
+      <!-- buttons -->
       <button
         data-navigation="screen-chronometer"
         type="button"
@@ -33,12 +40,17 @@
         CountDown
       </button>
     </section>
+  
+
+    <!-- chronometer -->
     <section
       id="screen-chronometer"
       class="timerScreen flex-column justify-content-center gap-3 align-items-center"
     >
       <h2>Cronômetro</h2>
-      <div class="screen">00:00:00:00</div>
+      <div class="screen" id="display-chronometer">00:00:00:00</div>
+
+      <!-- buttons -->
       <div>
         <button
           data-logic="chronometer:start"
@@ -78,12 +90,32 @@
         </button>
       </div>
     </section>
+
+    <!-- countdown step 1 -->
     <section
       id="screen-countdown-1"
       class="first-step flex-column justify-content-center gap-3 align-items-center"
     >
       <h2>CountDown</h2>
-      <input type="datetime-local" name="datetime-local" id="countdown-input" />
+
+      <!-- inputs -->
+      <label>
+        <input type="radio" name="mode" value="date" id="mode-date" /> Contar
+        até uma data
+      </label>
+      <label>
+        <input type="radio" name="mode" value="minutes" id="mode-minutes" />
+        Contar minutos
+      </label>
+      <input
+        type="datetime-local"
+        name="datetime-local"
+        id="countdown-date"
+        disabled
+      />
+      <input type="minutes" name="minutes" id="countdown-minutes" disabled />
+
+      <!-- start countdown -->
       <button
         data-logic="countdown:start"
         data-navigation="screen-countdown-2"
@@ -93,12 +125,17 @@
         Iniciar
       </button>
     </section>
+
+
+    <!-- countdown step 2 -->
     <section
       id="screen-countdown-2"
       class="second-step flex-column justify-content-center gap-3 align-items-center"
     >
       <h2>CountDown</h2>
-      <div class="screen">00:00:00</div>
+      <div class="screen" id="display-countdown">00:00:00</div>
+
+      <!-- buttons -->
       <div>
         <button
           data-logic="countdown:pause"
@@ -109,20 +146,14 @@
         </button>
         <button
           data-logic="countdown:cancel"
+          data-navigation="screen-countdown-1"
           type="button"
           class="button-primary border-0 rounded"
         >
           Cancelar
         </button>
         <button
-          data-logic="countdown:restart"
-          type="button"
-          class="button-primary border-0 rounded"
-        >
-          Reiniciar
-        </button>
-        <button
-          data-logic="countdown:reset"
+          data-logic="countdown:toHome"
           data-navigation="screen-home"
           type="button"
           class="button-primary border-0 rounded"
@@ -131,7 +162,9 @@
         </button>
       </div>
     </section>
+
   </body>
+
   <script type="module" src="index.js"></script>
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"

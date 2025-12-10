@@ -1,5 +1,5 @@
 import { updateScreen } from "../display/updateScreen.js";
-import { state, setState } from "../state/state.js";
+import { setState } from "../state/state.js";
 
 const chronometerController = (command) => {
   setState("statusMode", "chronometer");

@@ -2,7 +2,7 @@ const state = {
   statusMode: "chronometer",
   running: false,
   elapsedTime: 0,
-  countdownRemaining: "",
+  countdownRemaining: 0,
 };
 
 const setState = (key, value) => {

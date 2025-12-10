@@ -1,7 +1,9 @@
-// import { state, setState } from "../state/state.js";
+import { state, setState } from "../state/state.js";
 
 const countdownEngine = () => {
-  console.log(456);
+  const newValue = state.countdownRemaining - 100;
+  
+  setState("countdownRemaining", newValue);
 };
 
 export { countdownEngine };

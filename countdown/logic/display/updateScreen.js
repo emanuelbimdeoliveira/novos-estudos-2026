@@ -1,24 +1,23 @@
 import { state } from "../state/state.js";
+import { formatTime } from "../formaters/textFormaters.js";
 
-const screen = document.querySelector(".screen");
+let display;
+let time;
 
 const updateScreen = () => {
-  const time = formatTime(state.elapsedTime);
-  screen.innerText = time;
+  chooseDisplay();
+  display.innerText = time;
 };
 
-const formatTime = (ms) => {
-  const milliseconds = (ms % 1000) / 10;
-  const seconds = Math.floor(ms / 1000);
-  const minutes = Math.floor(seconds / 60);
-  const hours = Math.floor(minutes / 60);
-  const msStr = String(milliseconds).padStart(2, "0");
-
-  const s = String(seconds % 60).padStart(2, "0");
-  const m = String(minutes % 60).padStart(2, "0");
-  const h = String(hours).padStart(2, "0");
-
-  return `${h}:${m}:${s}.${msStr}`;
+const chooseDisplay = () => {
+  if (state.statusMode == "chronometer") {
+    display = document.querySelector("#display-chronometer");
+    time = formatTime(state.elapsedTime);
+  } else if (state.statusMode == "countdown") {
+    display = document.querySelector("#display-countdown");
+    time = formatTime(state.countdownRemaining);
+  }
+  if (!display) return;
 };
 
 export { updateScreen };
